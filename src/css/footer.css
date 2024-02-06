@@ -1,0 +1,198 @@
+@import url(../config/colors.css);
+
+.footer {
+    /* background-color: var(--serch-bg-color); */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+   
+}
+
+.logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer .logo img {
+    box-shadow: 0.2rem 0.2rem var(--serch-logo-shadow);
+    width: 150px;
+    border-radius: 1rem;
+}
+
+.footerlist {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.footer a {
+    color: var(--serch-light-link);
+    margin: 1rem 0rem;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.footer a:hover {
+    color: var(--serch-link-hover);
+}
+
+
+.footerlinks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company, .product, .support, .pricing {
+    display: flex;
+    flex-direction: column;
+    width: -moz-fit-content;
+    width: 20%;
+    margin: 0rem 1rem;
+}
+
+.socialmedia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.socialmedia img {
+    width: 30px;
+    height: 30px;
+    padding: 0.2rem;
+    margin: 0rem 0.2rem;
+}
+
+.app{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app img {
+    width: 200px;
+    height: 70px;
+    padding: 0.2rem;
+    margin: 0rem 0.2rem;
+}
+
+.footerbottom {
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.policy{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.policy a {
+    color: var(--serch-light-textTwo);
+    margin: 1rem;
+}
+
+.bottom {
+    margin-top: 0.8rem;
+}
+
+.pageLink{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+@media screen and (max-width:768px){
+   
+    .logo  img{
+       
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .logo{
+        text-align: center;
+    }
+
+    .footer {
+       
+        padding: 0.5rem;
+    }
+    .footerlist{
+        flex-direction: column;
+    }
+    .footerlinks{
+        flex-direction: column;
+    }
+    .app{
+        flex-direction: row;
+        text-align: start;
+    }
+  
+    
+    .app img {
+        width: 7.5rem;
+        height: 3.125rem;
+        padding: 0.2rem;
+        margin: 0;
+    }
+    .footer .logo {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+    }
+    
+    .socialmedia {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+    }
+    
+    .socialmedia img {
+        width: 30px;
+        height: 30px;
+        padding: 0.2rem;
+        /* margin: 0rem 0.2rem; */
+    }
+    .policy a {
+        margin: 1rem;
+    }
+    .bottom {
+       
+        margin-top: 2rem;
+    }
+    .footerbottom {
+      flex-direction: column;
+    }
+    .company, .product, .support, .pricing{
+        width:fit-content
+    }
+} 
+@media screen and (max-width:768px){
+
+/* .logo img{
+    
+    /* flex-direction: column; */
+    /* width: 10px; */
+    /* height: auto; */
+/* }  */
+ 
+.logo  img{
+       
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    
+}
+}

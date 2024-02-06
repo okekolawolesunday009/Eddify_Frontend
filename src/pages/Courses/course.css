@@ -1,0 +1,36 @@
+.course{
+    margin-top: 30px;
+    width: 60%;
+    
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+            /* Add a drop shadow */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.progress-container {
+    width: 80%;
+    height: 20px;
+    background-color: #a7a4a4;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+@media screen and (max-width: 768px){
+
+    .course{
+        width:100%;
+        /* background-color: red; */
+    }
+     
+
+}

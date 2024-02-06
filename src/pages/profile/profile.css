@@ -1,0 +1,104 @@
+.profile{
+    
+    width:100%;
+    height: 100dvh;
+    display: flex;
+    /* background-color: red;; */
+    
+}
+/* .profile-nav{
+    flex:0.1;
+    height: 70%;
+    margin-top: -200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+.profile-nav-item{
+  
+    padding-top: 25px;
+} */
+.profile-nav-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 25%;
+    background-color: black;
+    padding-top: 60px !important;
+
+}
+.profile-display{
+    flex: 1;
+    padding: 20px;
+    /* background: red; */
+}
+/* .profile-item{
+  
+    display: flex;
+} */
+.profile-icons{
+    width: 30px;
+    color: black;
+}
+
+/* this part id the round white circle that needs to be worked on */
+
+/* if it is not active the color of the icon shud be black
+if it active the color shud be black if */
+.active_item{
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    /* border-radius: 50%; */
+}
+#icon-padding{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    padding-top:20px;
+}
+
+.icon {
+    filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+  }
+  
+  .icon.active {
+    filter: brightness(0) saturate(100%)
+  }
+
+.profile_photo{
+    position: relative;
+    width: 300px;
+    height:300px;
+    /* background-image:url("../../../assets/profilepage/profilephoto.png"); */
+    background-size: cover;
+}
+.profile_photo > div{
+    position: absolute;
+    bottom: 0;
+}
+.profile_button > button{
+    width:max-content;
+}
+.profile_dashboard{
+    position: absolute;
+    bottom: 15%;
+}
+
+@media screen and (max-width: 768px){
+
+    .profile-nav-container{
+        display:none;
+        background-color: red;
+    }
+     
+
+}
