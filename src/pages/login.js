@@ -19,10 +19,10 @@ export const Login = () => {
     Title("Eddify || Login");
     const [formData, setFormData] = useState({
         email: "",
-        password_hash: ""
+        password: ""
    })
    const navigate = useNavigate()
-   const {email, password_hash} = formData
+   const {email, password} = formData
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -33,14 +33,17 @@ export const Login = () => {
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:3000/v1/users/login", formData)
+       axios.post("http://localhost:5001/api/v1/users/login", formData)
        .then(res => {
         console.log(res)
-        if (res.data.success === true) {
-            console.log(res.data.message)
-            // toast.success("Login Successful")
-            navigate("/todos")
-        }
+        navigate("/profile")
+
+        // if (res.data.success === true) {
+        //     console.log(res.data.message)
+        //     // toast.success("Login Successful")
+        //     console.log("successful")
+        //     navigate("/profile")
+        // }
        }).catch(err => {
         // toast.error("Error Signing in")
         console.log(err.response.data.error.message)
@@ -70,9 +73,9 @@ export const Login = () => {
             icon = {< img src={user} alt="password"/>}
              placeholder="password" 
              password
-             id="password_hash" 
+             id="password" 
              label="Password"
-             value={password_hash} 
+             value={password} 
              name= "password"
              onChanged ={handleChange} />
         <Link to={'/v1/users/reset'} >

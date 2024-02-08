@@ -20,22 +20,19 @@ import { Header_two } from "./header_two";
 export  default function SignUp(){
     Title("Eddify || Sign up");
 
-    // const [phone_one, setPhone_one] = useState()
+    // const [phone_no, setPhone_one] = useState()
     // const [phone_two, setPhone_two] = useState()
 
     const [formData, setFormData] = useState({
-        fullname: "",
+        first_name: "",
+        last_name : "",
         email: "",
-        password_hash: "",
-        sex: "",
-        username:"",
-        location : "",
-        phone_one:"",
-        phone_two: "",
-        pics:""
+        password: "",
+        phone_no:"",
+        image_file: "",
    })
    const navigate = useNavigate()
-   const {fullname, email, password_hash,location,phone_one, phone_two, pics, username} = formData
+   const {first_name, last_name, email, password, phone_no, image_file} = formData
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -48,7 +45,7 @@ export  default function SignUp(){
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:3000/v1/users/signUp", formData)
+       axios.post("http://localhost:5001/api/v1/users/signup", formData)
        .then(res => {
         console.log(res)
         navigate("/todos")
@@ -76,21 +73,21 @@ export  default function SignUp(){
             type="text" 
             icon= {< img src={user} alt="user"/>}
             placeholder="Peter Obi"
-            id="fullname"
-            label="Full Name"
-            name="name"
-            value={fullname}
+            id="first_name"
+            label="First Name"
+            name="first_name"
+            value={first_name}
             onChanged={handleChange}  />
-        <Input 
+       <Input 
             type="text" 
             icon= {< img src={user} alt="user"/>}
-            placeholder="PeterObi"
-            id="username"
-            label="User Name"
-            name="user"
-            value={username}
+            placeholder="Peter Obi"
+            id="last_name"
+            label="Last Name"
+            name="last_name"
+            value={last_name}
             onChanged={handleChange}  />
-        <Input 
+         <Input 
              type="text"
              icon= {< img src={emails} alt="email"/>} 
              placeholder="peterobi@gmail.com" 
@@ -99,48 +96,34 @@ export  default function SignUp(){
              name="email"
              value={email}
              onChanged={handleChange}  />
+    
+       
+        </div>
+        <div className="flex flex-col gap-4">
+       
         <Input 
              type="password" 
              icon = {< img src={padlock} alt="password"/>} 
              placeholder="password" 
              password 
-             id="password_hash"
+             id="password"
              label="Password" 
              name="password"
-             value={password_hash}
+             value={password}
              onChanged={handleChange} />
-        </div>
-        <div className="flex flex-col gap-4">
         <div>
             <Label>Phone Number</Label>
-            <PhoneNumber id="phone_one" name="phone_one" value={phone_one}  onChanged={handleChange}/>
+            <PhoneNumber id="phone_no" name="phone_no" value={phone_no}  onChanged={handleChange}/>
 
         </div>
-        
-        <div>
-            
-            <Label>Alternative Phone Number</Label>
-            <PhoneNumber id="phone_two" name="phone_two" value={phone_two}  onChanged={handleChange}/>
-            
-
-        </div>
-        <Input 
-             type="location"
-             icon= {< img src={emails} alt="email"/>} 
-             placeholder="Nigeria" 
-             id="location" 
-             label="Location"
-             name="location"
-             value={location}
-             onChanged={handleChange}  />
 
         <Input 
              type="file"
              placeholder="profilepics" 
-             id="pics" 
+             id="image_file" 
              label="Profile pics"
-             name="pics"
-             value={pics}
+             name="image_file"
+             value={image_file}
              onChanged={handleChange}  />
        
         </div>

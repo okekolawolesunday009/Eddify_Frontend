@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../Component/Input";
 import { Title } from "../../config/titleHeader";
 import CourseProps from "../Courses/CourseProps";
 import { Courses } from "../Courses/course";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 // import user from ".";
 
 // import profilephoto from "../../../assets/profilepage/profilephoto.svg";
@@ -41,8 +43,20 @@ export const ProfileCourse = ()=>{
     const [formData, setFormData] = useState({
         search: ""
    })
+   const [user, setUser] = useState([])
+
+   const {id} = useParams()
   
    const {search} = formData
+
+   useEffect(() => {
+    axios.get(`http://localhost:5001/api/v1/profile/courses/${id}/enrolled-courses`).then(({data}) =>{
+        setUser(data)
+        console.log(user)
+  
+      })
+
+   }, [])
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -77,6 +91,8 @@ export const ProfileCourse = ()=>{
                         
                 </div>
             </div>
+
+            {/* <h2 className="mt-4">More Courses</h2> */}
         </div>
     )
     

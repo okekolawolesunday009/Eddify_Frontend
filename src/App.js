@@ -11,6 +11,7 @@ import {  LessonLinks, ProfileLinks} from "./config/links";
 import { ProfileHome, ProfilePayment, ProfileDashboard, ProfileCourse, ProfileHelp, ProfileLogOut } from "./pages/profile/ProfilePage";
 import Lesson from "./pages/Lesson/Lesson";
 import { LessonHome } from "./pages/Lesson/LessonPages";
+import { UserContextProvider } from "./config/UserContext";
 function App() {
   return (
     <>
@@ -20,17 +21,17 @@ function App() {
     // profileCourse:"/profile/profilecourse",
     // profileHelp:"/profile/profilehelp",
     // profieLogOut:"/profile/profilelogout" */}
-    <BrowserRouter>
+    <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout/>}></Route>
-        <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/user/enrolled-course:id" element={<Course/>}></Route>
-        <Route path="/profile" element={<Profile/>}>
-           <Route path="/profile" element={<ProfileDashboard/>}/>
+        <Route path="/api/v1/users/signup" element={<SignUp/>}></Route>
+        <Route path="/api/v1/users/login" element={<Login/>}></Route>
+        {/* <Route path="/user/enrolled-course:id" element={<Course/>}></Route> */}
+        <Route path="/api/v1/profile" element={<Profile/>}>
+           <Route path="/api/v1/profile" element={<ProfileDashboard/>}/>
            <Route path={ProfileLinks.profilehome} element={<ProfileHome/>}/>
            <Route path={ProfileLinks.profilepayment} element={<ProfilePayment/>}/>
-           <Route path={ProfileLinks.profileCourse} element={<ProfileCourse/>}/>
+           <Route path={"/api/v1/profile/courses/:id/enrolled-courses"} element={<ProfileCourse/>}/>
            <Route path={ProfileLinks.profileHelp} element={<ProfileHelp/>}/>
            <Route path={ProfileLinks.profileLogOut} element={<ProfileLogOut/>}/>
        
@@ -41,7 +42,8 @@ function App() {
         </Route>
 
     </Routes>
-    </BrowserRouter>
+    </UserContextProvider>
+
 
       
     </>
