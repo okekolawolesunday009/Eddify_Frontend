@@ -15,14 +15,15 @@ export const Header_two = () => {
 
     return (
         <>
-        <div className="flex justify-between h-[5%]  items-center">
+        <div className="flex justify-between h-[5%]   items-center">
             <div className="">
                 <img src={eddify} className="lg:h-full h-[60%] lg:w-full w-[60%]" alt="Eddify"/>
             </div>
 
 
             <div className='flex border border-gray-300 rounded-full px-3 gap-2 justify-center items-center'>
-       {/* < VscThreeBars/> */}
+     
+       <AiOutlineUser/>
         {/* <Link to = {user? "/account":"/login"}> < AiOutlineUser/></Link>
         {!!user && (
           <div className='text-black'>
@@ -35,7 +36,8 @@ export const Header_two = () => {
         {window.innerWidth <= 768 ? (
           <div  className="">
             {/* <Link to={user ? "/account" : "/login"}> */}
-                <AiOutlineUser/>
+               
+            < VscThreeBars/>
                 {/* </Link> */}
            
           </div>

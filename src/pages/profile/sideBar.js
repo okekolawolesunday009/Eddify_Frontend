@@ -21,7 +21,7 @@ export const SideBar = [
       
     {
         title:"Profile",
-        path:"/profile",
+        path:"/api/v1/profile",
         // icon:<BsChatDotsFill/>,
         // icon:<img className="profile-icons" src={}/>,
 
@@ -48,7 +48,7 @@ export const SideBar = [
     },
     {
         title:"Course",
-        path:"/profile/profilecourse",
+        path:"/api/v1/profile/courses",
         // icon:<FcSettings/>,
         // icon:<img className="profile-icons" src={profilesetting}/>,
 
@@ -66,7 +66,7 @@ export const SideBar = [
     },
     {
         title:"Logout",
-        path:"/profile/profilelogout",
+        path:"/api/v1/profile/logout",
         // icon:<BsChatDotsFill/>,
         // icon:<img className="profile-icons" src={profilechat}/>,
 

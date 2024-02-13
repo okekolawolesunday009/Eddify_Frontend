@@ -27,13 +27,14 @@ function App() {
         <Route path="/api/v1/users/signup" element={<SignUp/>}></Route>
         <Route path="/api/v1/users/login" element={<Login/>}></Route>
         {/* <Route path="/user/enrolled-course:id" element={<Course/>}></Route> */}
+        
         <Route path="/api/v1/profile" element={<Profile/>}>
            <Route path="/api/v1/profile" element={<ProfileDashboard/>}/>
            <Route path={ProfileLinks.profilehome} element={<ProfileHome/>}/>
            <Route path={ProfileLinks.profilepayment} element={<ProfilePayment/>}/>
-           <Route path={"/api/v1/profile/courses/:id/enrolled-courses"} element={<ProfileCourse/>}/>
+           <Route path={"/api/v1/profile/courses"} element={<ProfileCourse/>}/>
            <Route path={ProfileLinks.profileHelp} element={<ProfileHelp/>}/>
-           <Route path={ProfileLinks.profileLogOut} element={<ProfileLogOut/>}/>
+           <Route path={"/api/v1/profile/logout"} element={<ProfileLogOut/>}/>
        
            
         </Route>

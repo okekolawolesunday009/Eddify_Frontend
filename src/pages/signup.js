@@ -48,7 +48,7 @@ export  default function SignUp(){
        axios.post("http://localhost:5001/api/v1/users/signup", formData)
        .then(res => {
         console.log(res)
-        navigate("/todos")
+        navigate("/api/v1/profile")
        })
        .catch(err => {
         console.error(err)
@@ -157,7 +157,7 @@ export  default function SignUp(){
         </div>
         
         <p className="text-center text-grey text-[1rem] mt-2">Already have an account?
-                 <Link to={'/'} >
+                 <Link to={'/api/v1/users/login'} >
                     <span className="pl-2 text-primary font-bold">
                     Log in
                     </span>

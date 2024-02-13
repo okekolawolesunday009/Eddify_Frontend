@@ -23,6 +23,8 @@ export const Login = () => {
    })
    const navigate = useNavigate()
    const {email, password} = formData
+
+//    email
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -31,12 +33,18 @@ export const Login = () => {
        }))
      }
 
+    
+
    const submit = (e) =>{
        e.preventDefault()
        axios.post("http://localhost:5001/api/v1/users/login", formData)
-       .then(res => {
-        console.log(res)
-        navigate("/profile")
+       .then(result => {
+        const token = result.data.token
+
+        console.log(token)
+        localStorage.setItem('token', token);
+  
+        navigate("/api/v1/profile")
 
         // if (res.data.success === true) {
         //     console.log(res.data.message)
@@ -46,7 +54,7 @@ export const Login = () => {
         // }
        }).catch(err => {
         // toast.error("Error Signing in")
-        console.log(err.response.data.error.message)
+        console.log(err)
        })
        
        
@@ -95,7 +103,7 @@ export const Login = () => {
         </div>
         
         <p className="text-center text-grey text-[1rem] mt-2">Don't have an account?
-                 <Link to={'/sign-up'} >
+                 <Link to={'/api/v1/users/signup'} >
                     <span className="pl-2 text-primary font-bold">
                     Sign up
                     </span>

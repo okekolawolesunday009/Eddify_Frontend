@@ -1,10 +1,16 @@
 import eddify from "../assets/eddify.svg"
 import dropDown from "../assets/dropDown.svg"
 import { HeadLinks } from "./headerLinks"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 export  const Header = () => {
     const [showDropdown, setShowDropdown] = useState(false);
+    const [courses, setCourses] = useState([])
+    function handleDropdown () {
+        setShowDropdown((p) => !p)
+
+    }
     const navigate = useNavigate()
     const handleClick = (route) => {
         // const selected = HeadLinks.map((link) => link.id == id)
@@ -12,10 +18,17 @@ export  const Header = () => {
             navigate("/")
 
         } else if (route === "about") {
-            navigate("/home/about")
+            // navigate("/home/about")
         }
 
     }
+    useEffect(() => {
+        axios.get("http://localhost:5001/api/v1/courses")
+        .then(({data}) => {
+            setCourses(data)
+            console.log(data)
+        })
+    })
    
 
     return (
@@ -27,15 +40,15 @@ export  const Header = () => {
 
             <div className="hidden lg:block">
                 <ul className="flex gap-4">
-                    <li  onClick={handleClick("home")} className="text-xl text-bold">Home</li>
+                    <li  onClick={() => handleClick("home")} className="text-xl text-bold">Home</li>
                 
                      <li className=" text-xl text-bold inline-flex items-center gap-2"
-                     onClick={() => setShowDropdown(!showDropdown)}>Course <img className="h-2 w-3 cursor-pointer" src={dropDown}/></li>
+                     onClick={() => handleDropdown("course")}>Course <img className="h-2 w-3 cursor-pointer" src={dropDown}/></li>
                     
                     {showDropdown && ( <div id="dropdown" className="absolute right-[47%] top-[13%] ">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        {HeadLinks.map((link) => {
-                            return <li className="text-xl text-bold"
+                        <ul class="py-2 bg-blue-400 rounded-2xl p-4 text-sm text-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        {courses.map((link) => {
+                            return <li className="text-xl hover:bg-white hover:text-black w-full cursor:pointer text-bold text-white"
                            
                             key={link.id}>{link.title}
                             
@@ -46,8 +59,8 @@ export  const Header = () => {
                     )}
                     
                     
-                    <li  onClick={handleClick("contact")} className="text-xl text-bold">Contact Us</li>
-                    <li  onClick={handleClick("about")} className="text-xl text-bold">About Us</li>
+                    <li  onClick={() => handleClick("contact")} className="text-xl text-bold">Contact Us</li>
+                    <li  onClick={() => handleClick("about")} className="text-xl text-bold">About Us</li>
 
 
                 </ul>
@@ -55,7 +68,7 @@ export  const Header = () => {
             </div>
 
             <div>
-                <Link to = {'/login'}>
+                <Link to = {'/api/v1/users/login'}>
                 <button className="bg-ed-secondary font-medium">Sign in</button>
                 </Link>
 

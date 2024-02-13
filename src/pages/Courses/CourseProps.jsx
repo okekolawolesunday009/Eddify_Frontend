@@ -8,7 +8,11 @@ export default function CourseProps({ courses }) {
         <Link to={""}>
         <div className='flex flex-col course gap-4 p-8 '>
             <div className='flex items-center gap-4'>
-                pics <h1>{courses.title}</h1>
+            <img className='image' 
+            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            alt="card-image"
+            /> 
+            <h1>{courses.title}</h1>
             </div>
 
             <div className="progress-container">
