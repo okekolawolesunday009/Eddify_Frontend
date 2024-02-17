@@ -60,12 +60,12 @@ export const LegalLinks = {
     accessibility: '/legal/document/accessibility-policy/'
 }
 export const ProfileLinks ={
-    profiledashboard:"/api/v1/profile",
-    profilehome:"/api/v1/profile/profilehome",
-    profilepayment:"/api/v1/profile/profilepayment",
-    profileCourse:"/api/v1/profile/profilecourse",
-    profileHelp:"/api/v1/profile/profilehelp",
-    profieLogOut:"/api/v1/profile/profilelogout"
+    profiledashboard:"/profile",
+    profilehome:"/profile/profilehome",
+    profilepayment:"/profile/profilepayment",
+    profileCourse:"/profile/profilecourse",
+    profileHelp:"/profile/profilehelp",
+    profieLogOut:"/profile/profilelogout"
 }
 export const LessonLinks ={
     coursedashboard:"/courses/lessons",

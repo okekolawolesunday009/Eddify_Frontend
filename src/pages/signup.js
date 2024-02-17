@@ -48,6 +48,11 @@ export  default function SignUp(){
        axios.post("http://localhost:5001/api/v1/users/signup", formData)
        .then(res => {
         console.log(res)
+        const token = res.data.token
+
+        console.log(token)
+        localStorage.setItem('token', token);
+  
         navigate("/api/v1/profile")
        })
        .catch(err => {

@@ -6,7 +6,7 @@ import Images from "../Images/images"
 export const HomePage = () => {
 
     return (
-        <div className="flex flex-col lg:flex-row lg:w-[100%]  px-10 lg:px-[50px]">
+        <div className="flex flex-col lg:flex-row lg:w-[100%] px-10 lg:px-[50px]">
             <div className="lg:w-[50%] lg:px-[100px]">
                 <h1 >
                 Lorem ipsum dolor si&nbsp;

@@ -9,21 +9,10 @@ import { Emails } from '../config/emails.js';
 import eddify from "../assets/eddify.svg"
 
 export const Footer = () => {
-    var getTime = new Date().getHours;
-    var getGreeting = () => {
-        if(getTime < 12) {
-            return "It's a new day. Let's make the most of it.";
-        } else if(getTime === 12 && getTime < 18) {
-            return "The day is not over. We can always start now.";
-        }else if (getTime <= 21) {
-            return "It's not over until you say it's over. Go all in now!";
-        }else {
-            return "Rest is as always important as your life is.";
-        }
-    }
+    
     return (
         <footer className="footer mt-[20px] px-[100px]">
-              <div className='w-[1000%]'>
+              <div className='w-[100%]'>
                <Link to={ MainLinks.home }><img alt='' src={eddify && eddify} /></Link>
                </div>
                    

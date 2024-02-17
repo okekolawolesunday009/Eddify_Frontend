@@ -10,7 +10,7 @@ import './course.css'; // Import CSS file for styling
 
 export function CardDefault({course}) {
   return (
-    <Card className="mt-6 w-96 card  ">
+    <Card className="mt-6   ">
       <CardHeader color="blue-gray" className="relative h-56">
         <img
           src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
@@ -26,7 +26,7 @@ export function CardDefault({course}) {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Button>Enroll</Button>
+        <button style={{width:"contain"}}>Enroll</button>
       </CardFooter>
     </Card>
   );

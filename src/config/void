@@ -1,0 +1,24 @@
+   
+    // useEffect(() => {
+       
+    //     const token = localStorage.getItem('token');
+    //     console.log(userString, "found")
+       
+    //     if (token) {
+    //         // Decode the token to extract user information
+    //         const decodedToken = decodeToken(token);
+    //         console.log(decodeToken)
+    //         setUser(decodedToken);
+           
+    //     }
+    // }, []);
+
+    // const decodeToken = (token) => {
+    //     try {
+    //         const decoded = jwtDecode(token);
+    //         return decoded;
+    //     } catch (error) {
+    //         console.error('Error decoding token:', error);
+    //         return null;
+    //     }
+    // };

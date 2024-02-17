@@ -19,24 +19,16 @@ export const SideBar = [
     // profileHelp:"/profile/profilehelp",
     // profieLogOut:"/profile/profilelogout"
       
-    {
-        title:"Profile",
-        path:"/api/v1/profile",
-        // icon:<BsChatDotsFill/>,
-        // icon:<img className="profile-icons" src={}/>,
+     {
+        title:"Course",
+        path:"/profile/courses",
+        // icon:<FcSettings/>,
+        // icon:<img className="profile-icons" src={profilesetting}/>,
 
         cName:"profile-nav-item"
 
     },
-    {
-        title:"Home",
-        path:"/profile/profilehome",
-        // icon:<BsChatDotsFill/>,
-        // icon:<img className="profile-icons" src={profilechat}/>,
-
-        cName:"profile-nav-item"
-
-    },
+   
     {
         title:"Payment",
         path:"/profile/profilepayment",
@@ -46,11 +38,12 @@ export const SideBar = [
         cName:"profile-nav-item"
 
     },
+   
     {
-        title:"Course",
-        path:"/api/v1/profile/courses",
-        // icon:<FcSettings/>,
-        // icon:<img className="profile-icons" src={profilesetting}/>,
+        title:"Profile",
+        path:"/profile",
+        // icon:<BsChatDotsFill/>,
+        // icon:<img className="profile-icons" src={}/>,
 
         cName:"profile-nav-item"
 
@@ -66,7 +59,7 @@ export const SideBar = [
     },
     {
         title:"Logout",
-        path:"/api/v1/profile/logout",
+        path:"/profile/logout",
         // icon:<BsChatDotsFill/>,
         // icon:<img className="profile-icons" src={profilechat}/>,
 

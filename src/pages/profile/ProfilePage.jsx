@@ -2,50 +2,75 @@ import React, { useContext, useEffect, useState } from "react";
 import Input from "../../Component/Input";
 import { Title } from "../../config/titleHeader";
 import CourseProps from "../Courses/CourseProps";
-import { Courses } from "../Courses/course";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
-import { UserContextProvider, userContext } from "../../config/UserContext";
+import { userContext } from "../../config/UserContext";
 import {AiOutlineUser} from 'react-icons/ai'
 import {VscThreeBars} from 'react-icons/vsc'
-import CourseDB from "../Courses/CourseDB";
 import { CardDefault } from "../Courses/CardDefault";
+import Search from "../../Component/UserIcon";
+import MobileSideBar from "../../Component/MobileSideBar";
+import Searchs from "../../Component/Searchs";
+import UserIcon from "../../Component/UserIcon";
+import { Header_two } from "../header_two";
+import eddify from "../../assets/eddify.svg"
 
-// import profilephoto from "../../../assets/profilepage/profilephoto.svg";
 
 export const ProfileDashboard = ()=>{
-    Title("Eddify || Profile Home");
+    Title("Eddify || Learners Profile");
     const {user} = useContext(userContext)
-    const {profile} = useContext(userContext)
-    console.log(user)
+    const [nav, setNav] = useState(false)
+
+    function handleClick(){
+      setNav((p) => !p)
+    }
    
     return(
+        <div className="">
+            <div className="flex relative justify-between items-center w-full " >
+            
+                      <h1>Profile</h1>
+                        <Searchs/>
+                        <UserIcon  onHandle={handleClick}/>
+
+                        </div>
        
-            <div className="profile_dashboard">
-                <div className="profile_photo">
                     {/* <img src={profilephoto} alt="profile photo"/> */}
-                 <div>
+           
+                 <div className= {nav ? 'w-[100%] bg-black z-40 bottom-0 block absolute' : 'hidden' }><MobileSideBar/></div>
+
+            
+
+          
+
+                 
+      
+{/*        
+            <div className="profile_dashboard">
+
+                 
                  <h3>
                  {!!user && (
                     <div className='text-black'>
-                        {profile.first_name}  {profile.last_name}
+                        {user.first_name}  {user.last_name}
                     </div>
                 )}
 
                  </h3>
                  <h4>Learner</h4>
-                 </div>
-                </div>
-                <div className="profile_button">
+                   </div> */}
+               
+                {/* <div className="profile_button">
                     <button type='submit'>Edit</button>
-                  </div>
-            </div>
+                  </div> */}
+            
+      </div>
         
     )
     
 };
 export const ProfileHome = ()=>{
-    Title("Serch || Profile Home");
+    Title("Eddiffy || Learner's Home");
     return(
         <div>
             profile Home
@@ -54,12 +79,13 @@ export const ProfileHome = ()=>{
     
 };
 export const ProfileCourse = ()=>{
-    Title("Eddify|| Profile Course");
+    Title("Eddify ||  Learner's  Course");
     const [formData, setFormData] = useState({
         search: ""
    })
    const {user} = useContext(userContext)
-       const {profile} = useContext(userContext)
+   const {id} = useContext(userContext)
+    
 
    const [courses, setCourses] = useState([])
    const [enrolledCourses, setEnrolledCourses] = useState([])
@@ -70,15 +96,18 @@ export const ProfileCourse = ()=>{
 
    
    useEffect(() => {
-    axios.get(`http://localhost:5001/api/v1/courses`).then(({data}) =>{
+    axios.get(`http://localhost:5001/courses`).then(({data}) =>{
         setCourses(data)
-        console.log(data)
   
       })
-    axios.get(`http://localhost:5001/api/v1/user/${profile.id}/enrollments`).then(({data}) =>{
-        setEnrolledCourses(data.course)
-        console.log(data)
+      
+   if (user && id) {
+    console.log(id)
+    axios.get(`http://localhost:5001/user/${id}/enrollments`).then(({data}) =>{
+        setEnrolledCourses(data)
+        console.log(enrolledCourses.course)
     })
+   }
 
    }, [])
 
@@ -90,54 +119,32 @@ export const ProfileCourse = ()=>{
          [e.target.id] : e.target.value
        }))
      }
+
+     const [nav, setNav] = useState(false)
+
+     function handleClick(){
+       setNav((p) => !p)
+     }
     return(
-        <div className="bg-blue-500!important">
+        <div className="bg-blue-500!important relative">
            <div className="flex justify-between items-center w-full " >
            <h1>My Courses</h1>
 
-           <div className="hidden lg:flex">
-           <Input
-            type="text" 
-            // icon= {<img src={user} alt="email"/>} 
-            placeholder="Search Course" 
-            id="search" 
-            value={search} 
-            name="search"
-            onChanged ={handleChange} />
-           </div>
-
-           <div className='flex border border-black rounded-full px-3 gap-2 justify-center items-center'>
-           
-           
-           {window.innerWidth <= 768 ? (
-                <div className="">
-                    <Link to={user ? "/api/v1/profile" : "/api/v1/users/login"}>
-                    <AiOutlineUser />
-                    </Link>
-                </div>
-                ) : (
-                    <AiOutlineUser />
-                )}
-
-                {/* Conditionally render the user details if user exists */}
-                {!!user && (
-                    <div className='text-black'>
-                        {user} {/* Example: Render the user's email */}
-                    </div>
-                )}
-
-                </div>
-
+            <Searchs/>
+            <UserIcon  onHandle={handleClick}/>
 
             </div>
+            <div className= {nav ? 'w-[100%] block absolute' : 'hidden' }><MobileSideBar/></div>
 
             <div className="" style={{paddingTop:"40px"}}>
                 <h2>My Learnings</h2    >
              
                 <div>
-                    {enrolledCourses.map((course) =>{
-                        return ( <CourseProps key={course.id} courses={course}/>)
-                    })}
+                    {enrolledCourses && (
+                        enrolledCourses.map((course) =>{
+                            return ( <CourseProps key={course.course_id} courses={course}/>)
+                    
+                    }))}
                         
                 </div>
             </div>
@@ -161,7 +168,7 @@ export const ProfileCourse = ()=>{
     
 };
 export const ProfileHelp = ()=>{
-    Title("Serch || Profile Settings");
+    Title("Serch || Learner's Settings");
     return(
         <div>
             profile help
@@ -170,14 +177,14 @@ export const ProfileHelp = ()=>{
     
 };
 export const ProfileLogOut= ()=>{
-    Title("Serch || Profile page");
+    Title("Serch || Logout");
 
     useEffect(() => {
         // Clear the token from localStorage
         localStorage.removeItem('token');
 
         // Redirect the user to the login page
-        window.location.replace('/api/v1/users/login');
+        window.location.replace('/login');
     }, []); // Empty dependency array to run the effect only once after the component mounts
 
     return(
@@ -188,7 +195,7 @@ export const ProfileLogOut= ()=>{
     
 };
 export const ProfilePayment = ()=>{
-    Title("Serch || Profile page");
+    Title("Serch || Payment");
 
     
     return(

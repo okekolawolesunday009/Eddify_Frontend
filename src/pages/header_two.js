@@ -23,16 +23,8 @@ export const Header_two = () => {
 
             <div className='flex border border-gray-300 rounded-full px-3 gap-2 justify-center items-center'>
      
-       <AiOutlineUser/>
-        {/* <Link to = {user? "/account":"/login"}> < AiOutlineUser/></Link>
-        {!!user && (
-          <div className='text-black'>
-            {user?.data.user.name} 
-          </div>
-        // )} */}
-        {/* //  <Link to = {user? "/account":"/login"}> < AiOutlineUser/></Link>
-        //   <div className="lg:hidden block">
-        //   <DrawerDefault /> */}
+       
+       
         {window.innerWidth <= 768 ? (
           <div  className="">
             {/* <Link to={user ? "/account" : "/login"}> */}
@@ -46,12 +38,7 @@ export const Header_two = () => {
         ""
         )}
 
-          {/* {!!user && (
-          <div className='text-black'>
-            {user?.data.user.name} 
-          </div>
-            )} */}
-
+      
       
       
       </div>

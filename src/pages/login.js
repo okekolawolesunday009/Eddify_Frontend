@@ -37,14 +37,14 @@ export const Login = () => {
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:5001/api/v1/users/login", formData)
+       axios.post("http://localhost:5001/login", formData)
        .then(result => {
         const token = result.data.token
 
         console.log(token)
         localStorage.setItem('token', token);
   
-        navigate("/api/v1/profile")
+        navigate("/profile")
 
         // if (res.data.success === true) {
         //     console.log(res.data.message)
@@ -103,7 +103,7 @@ export const Login = () => {
         </div>
         
         <p className="text-center text-grey text-[1rem] mt-2">Don't have an account?
-                 <Link to={'/api/v1/users/signup'} >
+                 <Link to={'/signup'} >
                     <span className="pl-2 text-primary font-bold">
                     Sign up
                     </span>

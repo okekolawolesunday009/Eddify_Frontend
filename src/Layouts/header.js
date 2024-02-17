@@ -33,7 +33,7 @@ export  const Header = () => {
 
     return (
        
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center px-[10px]">
             <div className="">
                 <img src={eddify} className="lg:h-full h-[60%] lg:w-full w-[60%]" alt="Eddify"/>
             </div>
@@ -68,7 +68,7 @@ export  const Header = () => {
             </div>
 
             <div>
-                <Link to = {'/api/v1/users/login'}>
+                <Link to = {'/login'}>
                 <button className="bg-ed-secondary font-medium">Sign in</button>
                 </Link>
 

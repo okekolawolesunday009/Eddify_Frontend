@@ -8,21 +8,13 @@ import { Subscribe } from './newsletter';
 export default function Layout() {
   Title("Eddify || Home");
   return (
-    <div className=''>
+    <div className='w-[100%] *:box-border'>
         <Header className="-mx-5"  />
         <HomePage/>
         <Subscribe/>
         <Footer/>
         
-        {/* homepage
-        courses
-        whypage
-        abtpage
-        subscribe
-        footer */}
-
-
-      
+             
     </div>
   )
 }
