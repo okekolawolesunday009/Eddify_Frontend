@@ -43,7 +43,7 @@ export default function Lesson({selected}) {
             <Header_two/>
         
            <div className='text-center text-white'>
-            <h3>Lesson</h3>
+            <h3>Modules</h3>
 
             <div className=''>
             {lesson.map((lesson) => {

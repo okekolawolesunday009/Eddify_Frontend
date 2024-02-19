@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Input from "../../Component/Input";
 import { Title } from "../../config/titleHeader";
 import CourseProps from "../Courses/CourseProps";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../../config/UserContext";
 import {AiOutlineUser} from 'react-icons/ai'
@@ -14,6 +14,9 @@ import Searchs from "../../Component/Searchs";
 import UserIcon from "../../Component/UserIcon";
 import { Header_two } from "../header_two";
 import eddify from "../../assets/eddify.svg"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore from 'swiper';
+import 'swiper/css/bundle';
 
 
 export const ProfileDashboard = ()=>{
@@ -172,6 +175,43 @@ export const ProfileHelp = ()=>{
     return(
         <div>
             profile help
+        </div>
+    )
+    
+};
+export const CourseEnroll = ()=>{
+    Title("Serch || Learner's Enroll");
+    // SwiperCore.use([Autoplay, Navigation, Pagination]);
+    const [courses, setCourses] = useState([])
+    const {id} = useParams()
+    console.log(id)
+    useEffect(() => {
+        axios.get(`http://localhost:5001/courses/${id}`).then(({data}) =>{
+            setCourses(data)
+            console.log(data)
+      
+          })
+        },[id])
+        const [nav, setNav] = useState(false)
+
+        function handleClick(){
+            setNav((p) => !p)
+          }
+    return(
+        <div>
+            <div className="flex justify-between mb-5 items-center w-full " >
+           <h3>Find Your Course</h3>
+
+            <Searchs/>
+            <UserIcon  onHandle={handleClick}/>
+
+            </div>
+            <div className="w-full flex  mt-5 bg-red-600 h-4 " style={{marginTop:"20px", backgroundColor:"gray", height:
+        "200px"}}>
+                <h1>{courses.title}</h1>
+
+            </div>
+
         </div>
     )
     

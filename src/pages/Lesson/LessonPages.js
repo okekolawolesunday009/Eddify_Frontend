@@ -57,12 +57,17 @@ export const LessonHome = ()=>{
             </div>
             <div className="pt-8">
                 <div className="flex">
-                <p className="font-bold">course/lesson</p>
+                  <Link to={"/profile/courses"}>
+                    <p className="font-bold">course/</p>
+                </Link>
+
+                <p className="font-bold"> Lesson</p>
                 </div>
+
                 
             {lesson && (
                 lesson.map((lesson) => {
-                    return <iframe width="auto" height="515"  src={`https://www.youtube.com/embed/ZhULGD5hNQs`} frameBorder="0"
+                    return <iframe width="100%" height="515"  src={`https://www.youtube.com/embed/ZhULGD5hNQs`} frameBorder="0"
                             allow="accelerator; autoplay; clipboard-wrte; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen>
                                 

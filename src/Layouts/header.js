@@ -23,12 +23,16 @@ export  const Header = () => {
 
     }
     useEffect(() => {
-        axios.get("http://localhost:5001/api/v1/courses")
+        if (handleClick === "course") {
+            axios.get("http://localhost:5001/courses")
         .then(({data}) => {
             setCourses(data)
             console.log(data)
         })
-    })
+
+        }
+        
+    },[handleClick])
    
 
     return (
@@ -42,13 +46,13 @@ export  const Header = () => {
                 <ul className="flex gap-4">
                     <li  onClick={() => handleClick("home")} className="text-xl text-bold">Home</li>
                 
-                     <li className=" text-xl text-bold inline-flex items-center gap-2"
-                     onClick={() => handleDropdown("course")}>Course <img className="h-2 w-3 cursor-pointer" src={dropDown}/></li>
+                     <li className=" text-xl text-bold inline-flex items-center gap-2"onClick={() => handleClick("course")}
+                    >Course <img  onClick={() => handleDropdown("course")} className="h-2 w-3 cursor-pointer" src={dropDown}/></li>
                     
                     {showDropdown && ( <div id="dropdown" className="absolute right-[47%] top-[13%] ">
                         <ul class="py-2 bg-blue-400 rounded-2xl p-4 text-sm text-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         {courses.map((link) => {
-                            return <li className="text-xl hover:bg-white hover:text-black w-full cursor:pointer text-bold text-white"
+                            return <li  className="text-xl hover:bg-white hover:text-black w-full cursor:pointer text-bold text-white"
                            
                             key={link.id}>{link.title}
                             
@@ -68,8 +72,8 @@ export  const Header = () => {
             </div>
 
             <div>
-                <Link to = {'/login'}>
-                <button className="bg-ed-secondary font-medium">Sign in</button>
+                <Link to = {'/signup'}>
+                <button className="bg-ed-secondary font-medium">Sign up</button>
                 </Link>
 
             </div>

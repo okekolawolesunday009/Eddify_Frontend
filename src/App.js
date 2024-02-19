@@ -8,7 +8,7 @@ import Course from "./pages/course";
 import  {Login } from "./pages/login";
 import Profile from "./pages/profile/Profile";
 import {  LessonLinks, ProfileLinks} from "./config/links";
-import { ProfileHome, ProfilePayment, ProfileDashboard, ProfileCourse, ProfileHelp, ProfileLogOut } from "./pages/profile/ProfilePage";
+import { ProfileHome, ProfilePayment, ProfileDashboard, ProfileCourse, ProfileHelp, ProfileLogOut, CourseEnroll } from "./pages/profile/ProfilePage";
 import Lesson from "./pages/Lesson/Lesson";
 import { LessonHome } from "./pages/Lesson/LessonPages";
 import { UserContextProvider } from "./config/UserContext";
@@ -33,6 +33,7 @@ function App() {
            <Route path={ProfileLinks.profilehome} element={<ProfileHome/>}/>
            <Route path={ProfileLinks.profilepayment} element={<ProfilePayment/>}/>
            <Route path={"/profile/courses"} element={<ProfileCourse/>}/>
+           <Route path={"/profile/course/:id"} element={<CourseEnroll/>}/>
            <Route path={ProfileLinks.profileHelp} element={<ProfileHelp/>}/>
            <Route path={"/profile/logout"} element={<ProfileLogOut/>}/>
        

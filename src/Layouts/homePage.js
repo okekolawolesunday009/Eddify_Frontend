@@ -8,18 +8,17 @@ export const HomePage = () => {
     return (
         <div className="flex flex-col lg:flex-row lg:w-[100%] px-10 lg:px-[50px]">
             <div className="lg:w-[50%] lg:px-[100px]">
-                <h1 >
-                Lorem ipsum dolor si&nbsp;
-
-                    amet consectetur kier dd.
+                <h1>
+                    Welcome to Eddify Learning Platform
                 </h1>
-
                 <p className="pt-[50px] text-sm lg:text-xl">
-                Lorem ipsum dolor sit amet consectetur. Eu aliquam sit sapien scelerisque. Donec iaculis magna elit dictumst aliquam eu odio. 
-                Egestas etiam magna nibh elementum in potenti egestas. Sit lobortis fames aliquet nunc eget ut.
+                    Eddify is your gateway to a world of knowledge and learning opportunities. With a vast array of courses and resources, we empower learners like you to explore, discover, and grow.
+                    <br />
+                    Dive into our immersive courses designed to cater to learners of all levels. From beginners to experts, there's something for everyone.
+                    <br />
+                    Join our vibrant community of learners and educators, where you can engage in discussions, share insights, and collaborate on projects.
                 </p>
-
-                <div>
+             <div>
 
                     <ul class=" text-sm flex py-[50px] flex-col gap-4" aria-labelledby="dropdownDefaultButton">
                         {Quality.map((link) => {

@@ -7,8 +7,11 @@ import {
   Button,
 } from "@material-tailwind/react";
 import './course.css'; // Import CSS file for styling
+import { Link, useParams } from "react-router-dom";
 
 export function CardDefault({course}) {
+  const {id} = course
+  console.log(id)
   return (
     <Card className="mt-6   ">
       <CardHeader color="blue-gray" className="relative h-56">
@@ -26,7 +29,9 @@ export function CardDefault({course}) {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
+        <Link to={`/profile/course/${id}`}>
         <button style={{width:"contain"}}>Enroll</button>
+        </Link>
       </CardFooter>
     </Card>
   );
