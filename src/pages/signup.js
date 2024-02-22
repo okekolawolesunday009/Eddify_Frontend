@@ -165,7 +165,7 @@ export  default function SignUp(){
         </div>
         
         <p className="text-center text-grey text-[1rem] mt-2">Already have an account?
-                 <Link to={'/api/v1/users/login'} >
+                 <Link to={'/login'} >
                     <span className="pl-2 text-primary font-bold">
                     Log in
                     </span>
