@@ -11,8 +11,9 @@ import "../profile/profile.css";
 // import { ProfileWrapper } from './ProfileWrapper';
 // import Images from '../config/images/images';
 // import classnames from 'classnames';
-import { Header_two } from '../header_two';
+import { HeaderTwo } from '../headerTwo';
 import axios from 'axios';
+import ProfileIcons from '../profile/ProfileIcons';
 
 
 export default function Lesson({selected}) {
@@ -26,7 +27,7 @@ export default function Lesson({selected}) {
 
       const {id} = useParams()
     const [lesson, setLesson] = useState([])
-    console.log(id)
+    // console.log(id)
     useEffect(() => {
         axios.get(`http://localhost:5001/course/${id}/lesson`).then(({data}) =>{
             setLesson(data)
@@ -40,21 +41,8 @@ export default function Lesson({selected}) {
             
          <div className='profile-nav-container pt-4 flex flex-col bg-red-500'>
         
-            <Header_two/>
-        
-           <div className='text-center text-white'>
-            <h3>Modules</h3>
-
-            <div className=''>
-            {lesson.map((lesson) => {
-                return <l1 className="text-white" key={lesson.lesson_id}>{lesson.lesson_title}</l1>
-            })}
-
-            </div>
-          
-
-           </div>
-            
+            <HeaderTwo/>
+            <ProfileIcons/>           
          
          </div>
          

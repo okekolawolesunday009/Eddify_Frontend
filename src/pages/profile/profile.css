@@ -25,14 +25,17 @@
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    gap: 25%;
-    background-color: black;
-    padding-top: 60px !important;
+    gap: 15%;
+    height: 100%;
+    background-color: var(--secondary);
+    /* padding-top: 60px !important; */
 
 }
 .profile-display{
     flex: 1;
     padding: 20px;
+    height: auto;
+    overflow-y: scroll;
     /* background: red; */
 }
 /* .profile-item{
@@ -93,12 +96,87 @@ if it active the color shud be black if */
     bottom: 15%;
 }
 
+.bottom-border{
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+}
+.p-card{
+    display: flex;
+    width: 80%;
+    height: 400px;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    padding: 20px;
+}
+.p-card > .div-text{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap:20px;
+
+    /* background-color: red; */
+}
+
+.p-card > .div-text > .div-text-flex {
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* background-color: red; */
+}
+.p-card > .div-text > .div-text-flex > div{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.p-card > .div-icon{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+    border-right: 1px solid gray;
+}
+
+.p-card > .div-icon > img {
+    border-radius: 50%;
+    width: 200px;
+}
+
 @media screen and (max-width: 768px){
 
     .profile-nav-container{
         display:none;
-        background-color: red;
+        /* background-color: red; */
     }
-     
+
+    .p-card{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        /* background-color: red; */
+        justify-content: center;
+
+       
+    }
+    .p-card > .div-icon{
+        /* background-color: blue; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap:10px;
+        border-right: 0px solid gray;
+    }
+    
 
 }

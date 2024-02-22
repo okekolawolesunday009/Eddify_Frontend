@@ -12,11 +12,14 @@ import Search from "../../Component/UserIcon";
 import MobileSideBar from "../../Component/MobileSideBar";
 import Searchs from "../../Component/Searchs";
 import UserIcon from "../../Component/UserIcon";
-import { Header_two } from "../header_two";
 import eddify from "../../assets/eddify.svg"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
+import Images from "../../Images/images"
+import { Courses, SampleCourses } from "../Courses/course";
+import CourseStatic from "../Courses/CourseStatic";
+import { Footer } from "../../Layouts/footer";
 
 
 export const ProfileDashboard = ()=>{
@@ -33,40 +36,52 @@ export const ProfileDashboard = ()=>{
             <div className="flex relative justify-between items-center w-full " >
             
                       <h1>Profile</h1>
-                        <Searchs/>
                         <UserIcon  onHandle={handleClick}/>
 
-                        </div>
+             </div>
+             <div className="bottom-border"></div>
        
-                    {/* <img src={profilephoto} alt="profile photo"/> */}
            
                  <div className= {nav ? 'w-[100%] bg-black z-40 bottom-0 block absolute' : 'hidden' }><MobileSideBar/></div>
 
-            
+            <div className=" p-card " style={{marginTop:"40px"}}>
+                <div className="div-icon">
+                  
 
-          
+                    <img src={Images.profilePhoto} alt="profile photo"/>
+                    <h3 className="font-bold">OKE KOLAWOLE SUNDAY</h3>
 
-                 
-      
-{/*        
-            <div className="profile_dashboard">
 
-                 
-                 <h3>
-                 {!!user && (
-                    <div className='text-black'>
-                        {user.first_name}  {user.last_name}
+
+                </div>
+                <div className="div-text">
+
+                    <h2>Personal Details</h2>
+                    <div className="div-text-flex">
+                        <div>
+                                <h3>Title:</h3>
+                                <h3>Sex:</h3>
+                                <h3>Date of Birth:</h3>
+                                <h3>Membership:</h3>
+
+                        </div>
+                        <div className="font-bold">
+
+                                <h3>Mr</h3>
+                                <h3>Nil</h3>
+                                <h3>22-09-1987</h3>
+                                <h3>Gold</h3>
+
+
+                        </div>
+
                     </div>
-                )}
+                 </div>
+                
+                
+            </div>
 
-                 </h3>
-                 <h4>Learner</h4>
-                   </div> */}
-               
-                {/* <div className="profile_button">
-                    <button type='submit'>Edit</button>
-                  </div> */}
-            
+            <Footer/>
       </div>
         
     )
@@ -90,7 +105,7 @@ export const ProfileCourse = ()=>{
    const {id} = useContext(userContext)
     
 
-   const [courses, setCourses] = useState([])
+   const [courses, setCourses] = useState([...SampleCourses])
    const [enrolledCourses, setEnrolledCourses] = useState([])
   
    const {search} = formData
@@ -137,17 +152,27 @@ export const ProfileCourse = ()=>{
             <UserIcon  onHandle={handleClick}/>
 
             </div>
+            <div className="bottom-border"></div>
+
             <div className= {nav ? 'w-[100%] block absolute' : 'hidden' }><MobileSideBar/></div>
 
             <div className="" style={{paddingTop:"40px"}}>
                 <h2>My Learnings</h2    >
              
                 <div>
-                    {enrolledCourses && (
+                   {user != null ? ( enrolledCourses && (
                         enrolledCourses.map((course) =>{
                             return ( <CourseProps key={course.course_id} courses={course}/>)
                     
-                    }))}
+                    }))) : (
+                        Courses.map((course) =>{
+                            return ( <CourseStatic key={course.course_id} courses={course}/>)
+                    
+                    })
+                       
+                    )
+
+                }
                         
                 </div>
             </div>
@@ -166,6 +191,8 @@ export const ProfileCourse = ()=>{
                 </ul>
 
             </div>
+
+            <Footer/>
         </div>
     )
     

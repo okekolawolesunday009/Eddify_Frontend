@@ -13,7 +13,7 @@ import React from 'react';
 // import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
 import { Label } from "../Component/styled";
-import { Header_two } from "./header_two";
+import { HeaderTwo } from "./headerTwo";
 
 
 
@@ -45,28 +45,31 @@ export  default function SignUp(){
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:5001/api/v1/users/signup", formData)
-       .then(res => {
-        console.log(res)
-        const token = res.data.token
+    //    axios.post("http://localhost:5001/api/v1/users/signup", formData)
+    //    .then(res => {
+    //     console.log(res)
+    //     const token = res.data.token
 
-        console.log(token)
-        localStorage.setItem('token', token);
+    //     console.log(token)
+    //     localStorage.setItem('token', token);
   
-        navigate("/api/v1/profile")
-       })
-       .catch(err => {
-        console.error(err)
-       })
-       console.log(formData)
+    //     navigate("/api/v1/profile")
+    //    })
+    //    .catch(err => {
+    //     console.error(err)
+    //    })
+    //    console.log(formData)
        //install toast
     //    navigate("/")
+
+       navigate("/profile")
+
        
 
    }
     return (
         <div className="">
-        <Header_two/>
+        <HeaderTwo/>
     <form className="">
      <div className="space-y-2 flex justify-center mx-auto  max-w-3xl  lg:my-10 p-10  lg:h-full w-full bg-cover flex-col">
         

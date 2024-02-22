@@ -21,7 +21,12 @@ export default function ProfileIcons({column}) {
                 return (
                 <div key={index}  onClick = {()=> handleItemClick(index)}  className={index == activeIndex? 'active_item' : ''} id="icon-padding">
                    <Link to={item.path}>
-                    <div className={classnames('icon', { active: index === activeIndex })} style={{fontSize:"20px", fontWeight:"bolder"}}> {item.title}</div>
+                    <div 
+                       className={`${classnames('icon ', { active: index === activeIndex })}`} 
+                       style={{fontSize:"20px", fontWeight:"bolder", display:"flex", alignItems:"center",  width:"130px", justifyContent:"", gap:"15px"}}>
+                      <p className='left'>{item.icon} </p>
+                      <p className="text-center">{item.title}</p>
+                      </div>
                    </Link>
 
                 </div>

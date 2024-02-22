@@ -4,7 +4,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layouts/Layout";
 import SignUp from "./pages/signup";
-import Course from "./pages/course";
 import  {Login } from "./pages/login";
 import Profile from "./pages/profile/Profile";
 import {  LessonLinks, ProfileLinks} from "./config/links";
@@ -39,8 +38,8 @@ function App() {
        
            
         </Route>
-        <Route path="/courses/:id/lessons" element={<Lesson/>}>
-              <Route path={"/courses/:id/lessons"} element={<LessonHome/>}/>
+        <Route path="/course/:id/lessons" element={<Lesson/>}>
+              <Route path={"/course/:id/lessons"} element={<LessonHome/>}/>
         </Route>
 
     </Routes>

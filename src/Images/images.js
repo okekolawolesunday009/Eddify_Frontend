@@ -3,6 +3,7 @@ const  Images = {
     serchLogoName: require('../assets/logo/eddify.svg'),
     home_one: require("../assets/home/home_one.jpg"),
     home_two: require("../assets/home/home_two.jpg"),
+    profilePhoto: require("../assets/home/home_two.jpg"),
 
     //Artisan Images
     mechanic: require('../assets/animation/mechanics.png'),

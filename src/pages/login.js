@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import React from 'react';
 // import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
-import { Header_two } from "./header_two";
+import { HeaderTwo } from "./headerTwo";
 // import { Label } from "../Component/styled";
 // import { toast } from "react-toastify";
 
@@ -62,7 +62,7 @@ export const Login = () => {
    }
     return (
         <div className="">
-            <Header_two/>
+            <HeaderTwo/>
         <form className="">
      <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
         <h1 className="mb-2">Welcome Back!!!</h1>

@@ -2,17 +2,8 @@ import React, { useState } from 'react';
 // import { SideBar } from './sideBar';
 import { Link, Outlet} from 'react-router-dom';
 import "./profile.css";
-// import '..index.css';
-// import { AppLinks, MainLinks} from "../config/custom/links";
-// import Images from '..';
-// import { FcSettings } from "react-icons/fc"
-// import profilephoto2 from "../../../assets/profilepage/profilephoto2.svg";
-// import arrow from "../../../assets/profilepage/arrow.svg";
-// import { ProfileWrapper } from './ProfileWrapper';
-// import Images from '../config/images/images';
-// import classnames from 'classnames';
 import ProfileIcons from './ProfileIcons';
-import { Header_two } from '../header_two';
+import { HeaderTwo } from '../headerTwo';
 
 
 export default function Profile({selected}) {
@@ -25,11 +16,11 @@ export default function Profile({selected}) {
       }
 
     return (
-        <div className="profile">
+        <div className="profile ">
             
-         <div className='profile-nav-container pt-4'>
+         <div className='profile-nav-container '>
         
-            <Header_two/>
+            <HeaderTwo/>
         
             <ProfileIcons/>
          
