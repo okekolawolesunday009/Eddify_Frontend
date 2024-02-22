@@ -20,6 +20,7 @@ import Images from "../../Images/images"
 import { Courses, SampleCourses } from "../Courses/course";
 import CourseStatic from "../Courses/CourseStatic";
 import { Footer } from "../../Layouts/footer";
+import ProfileIcons from "./ProfileIcons";
 
 
 export const ProfileDashboard = ()=>{
