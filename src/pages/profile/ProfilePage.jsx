@@ -108,7 +108,7 @@ export const ProfileCourse = ()=>{
 
    const [courses, setCourses] = useState([...SampleCourses])
    const [enrolledCourses, setEnrolledCourses] = useState([])
-  
+   const [nav, setNav] = useState(false)
    const {search} = formData
 
    const navigate = useNavigate()
@@ -139,7 +139,6 @@ export const ProfileCourse = ()=>{
        }))
      }
 
-     const [nav, setNav] = useState(false)
 
      function handleClick(){
        setNav((p) => !p)
@@ -234,6 +233,13 @@ export const CourseEnroll = ()=>{
             <UserIcon  onHandle={handleClick}/>
 
             </div>
+
+            <div className="bottom-border"></div>
+       
+           
+          <div className= {nav ? 'w-[100%] bg-black z-40 bottom-0 block absolute' : 'hidden' }><MobileSideBar/></div>
+
+
             <div className="w-full flex  mt-5 bg-red-600 h-4 " style={{marginTop:"20px", backgroundColor:"gray", height:
         "200px"}}>
                 <h1>{courses.title}</h1>

@@ -94,6 +94,9 @@ export const LessonHome = ()=>{
       function handleLesson(){
         setNavLesson((p) => !p)
       }
+      function handleClick(){
+        setNav((p) => !p)
+      }
     return(
         <div className="">
            
@@ -103,6 +106,8 @@ export const LessonHome = ()=>{
 
             </div>
             <div className="bottom-border"></div>
+            <div className= {nav ? 'w-[100%] block absolute' : 'hidden' }><MobileSideBar/></div>
+
 
 
                     
