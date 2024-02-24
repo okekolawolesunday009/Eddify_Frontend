@@ -8,7 +8,7 @@
 - [Installation](#-Installation)
 - [Usage](#-Usage)
 - [Contributing](#-Contributing)
-- [Related Projects](#-Related Projects)
+- [Related-Projects](#-Related Projects)
 - [Used By](#-used-by)
 - [License](#-license)
 
@@ -61,7 +61,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 ## Authors
 
-Author(s): Oke Kolawole, Timilehin Adeniran
-Oke Kolawole's LinkedIn ([Link to Oke Kolawole's LinkedIn profile](https://github.com/okekolawolesunday009))
-Timilehin Adeniran's LinkedIn profile](https://github.com/timishot/EDDIFY))
+Author(s):
+Oke Kolawole
+Github ([Link to Oke Kolawole's Github profile](https://github.com/okekolawolesunday009))
+LinkedIn ([Link to Oke Kolawole's LinkedIN profile](https://www.linkedin.com/in/kolawole-sunday-oke-38b1871a3/))
+Timilehin Adeniran
+Github ([Link to Timilehin's profile](https://github.com/timishot/EDDIFY))
+LinkedIn ([Link to Timilehin's LinkedIN profile](https://www.linkedin.com/in/timilehin-adeniran-342710234/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
 
