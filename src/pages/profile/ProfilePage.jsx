@@ -211,13 +211,20 @@ export const CourseEnroll = ()=>{
     // SwiperCore.use([Autoplay, Navigation, Pagination]);
     const [courses, setCourses] = useState([])
     const {id} = useParams()
-    console.log(id)
+    const {user} = useContext(userContext)
+    console.log(id, courses)
     useEffect(() => {
-        axios.get(`http://localhost:5001/courses/${id}`).then(({data}) =>{
+        if (user && id) {
+
+           axios.get(`http://localhost:5001/courses/${id}`).then(({data}) =>{
             setCourses(data)
             console.log(data)
       
           })
+        }else{
+            setCourses()
+
+        }
         },[id])
         const [nav, setNav] = useState(false)
 
@@ -227,7 +234,7 @@ export const CourseEnroll = ()=>{
     return(
         <div>
             <div className="flex justify-between mb-5 items-center w-full " >
-           <h3>Find Your Course</h3>
+            <h1>{courses.title}</h1>
 
             <Searchs/>
             <UserIcon  onHandle={handleClick}/>
@@ -242,9 +249,11 @@ export const CourseEnroll = ()=>{
 
             <div className="w-full flex  mt-5 bg-red-600 h-4 " style={{marginTop:"20px", backgroundColor:"gray", height:
         "200px"}}>
-                <h1>{courses.title}</h1>
+                
 
             </div>
+
+            <Footer/>
 
         </div>
     )

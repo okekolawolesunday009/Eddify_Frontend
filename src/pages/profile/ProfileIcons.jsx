@@ -22,7 +22,8 @@ export default function ProfileIcons({column}) {
                 <div key={index}  onClick = {()=> handleItemClick(index)}  className={index == activeIndex? 'active_item' : ''} id="icon-padding">
                    <Link to={item.path}>
                     <div 
-                       className={`${classnames('icon ', { active: index === activeIndex })}`} 
+                       className={`${classnames('icon px-4 py-2  shadow-lg hover:shadow-lg focus:shadow-lg text-center active:shadow-lg transition duration-150 ease rounded-sm',
+                        { active: index === activeIndex })}`} 
                        style={{fontSize:"20px", fontWeight:"bolder", display:"flex", alignItems:"center",  width:"130px", justifyContent:"", gap:"15px"}}>
                       <p className='left'>{item.icon} </p>
                       <p className="text-center">{item.title}</p>

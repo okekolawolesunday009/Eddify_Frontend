@@ -12,6 +12,7 @@ import { Footer } from "../../Layouts/footer";
 import {VscThreeBars} from 'react-icons/vsc'
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import MobileSideBar from "../../Component/MobileSideBar";
 
 
 export const LessonHome = ()=>{
@@ -126,7 +127,8 @@ export const LessonHome = ()=>{
                 <div className={`h-auto w-full `}>
                    <ul className="flex flex-col h-[200px] mt-4 justify-between">
                     {lesson.map((lessonItem) => {
-                        return <li key={lessonItem.id} onClick={() => 
+                        return <li 
+                        className=" cursor-pointer px-4 py-2  shadow-md hover:shadow-lg focus:shadow-lg text-center active:shadow-lg transition duration-150 ease rounded-sm"                         key={lessonItem.id} onClick={() => 
                         handleContent(lessonItem.content, lessonItem.title, lessonItem.description)}>
                         {lessonItem.title}
                     </li>
