@@ -13,7 +13,7 @@ export function UserContextProvider({children}){
         
         const user = localStorage.getItem('user');
 
-        if (user != null) {
+        
             console.log(user, "user")
             const tokenKey = localStorage.getItem('token');
             axios.get(`http://localhost:5001/auth`,  {
@@ -29,7 +29,7 @@ export function UserContextProvider({children}){
                 console.log(error)
             })
 
-        } 
+        
     },[])
 
 

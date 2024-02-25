@@ -1,16 +1,10 @@
 const  Images = {
-    serchLogo: require('../assets/logo/Logowhite.png'),
-    serchLogoName: require('../assets/logo/eddify.svg'),
+    eddify: require('../assets/logo/eddify.svg'),
     home_one: require("../assets/home/home_one.jpg"),
     home_two: require("../assets/home/home_two.jpg"),
     profilePhoto: require("../assets/home/home_two.jpg"),
-
-    //Artisan Images
-    mechanic: require('../assets/animation/mechanics.png'),
-
-    //Page Header Images
-    paymentHeader: require('../assets/pay/subscriptio.png'),
-    countryHeader: require('../assets/country/world.png'),
+    eddify_white: require("../assets/logo/Eddify-logos_white.png"),
+    
 
     //SocialMedia
     facebook: require('../assets/socialmedia/FaceSocial.png'),

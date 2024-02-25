@@ -1,7 +1,7 @@
 export const SampleLesson= [
     {
         id: 1,
-        title:"On-boarding",
+        lesson_title:"On-boarding",
         progress:20,
         content:"ZhULGD",
         description:"Lorem ipsum dolor sit amet consectetur. Est morbi tortor egestas scelerisque. Tellus fermentum nisi consequat sed tellus mauris pharetra. Feugiat sed vel tristique ultrices varius aliquam. Gravida mauris tincidunt proin in sit ut."
@@ -9,7 +9,7 @@ export const SampleLesson= [
     },
     {
         id: 2,
-        title:"Eddify",
+        lesson_title:"Eddify",
         progress:30,
         content:"LGD5hNQs",
         description:"aa"
@@ -18,7 +18,7 @@ export const SampleLesson= [
     },
     {
         id: 3,
-        title:"On-boarding",
+        lesson_title:"On-boarding",
         progress:20,
         content:"sssssss",
         description:"aa"
@@ -27,7 +27,7 @@ export const SampleLesson= [
     },
     {
         id: 4,
-        title:"Eddify",
+        lesson_title:"Eddify",
         progress:30,
         content:"Zssddddaas",
         description:"aa"

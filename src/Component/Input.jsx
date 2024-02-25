@@ -11,6 +11,7 @@ function Input({
       placeholder, 
       icon, 
       id, 
+      required,
       type, 
       gender, 
       password, 
@@ -57,10 +58,10 @@ function Input({
           type={type}
           placeholder={placeholder}
           id={id}
+          required={required}
           value ={value}
           name={name}
           onChange={handleChangeProp}
-          required
           autoComplete="off"
         />
       ) : (

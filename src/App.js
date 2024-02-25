@@ -10,19 +10,16 @@ import {  LessonLinks, ProfileLinks} from "./config/links";
 import { ProfileHome, ProfilePayment, ProfileDashboard, ProfileCourse, ProfileHelp, ProfileLogOut, CourseEnroll } from "./pages/profile/ProfilePage";
 import Lesson from "./pages/Lesson/Lesson";
 import { LessonHome } from "./pages/Lesson/LessonPages";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { UserContextProvider } from "./config/UserContext";
 function App() {
   return (
     <>
-     {/* // profiledashboard:"/profile",
-    // profilehome:"/profile/profilehome",
-    // profilepayment:"/profile/profilepayment",
-    // profileCourse:"/profile/profilecourse",
-    // profileHelp:"/profile/profilehelp",
-    // profieLogOut:"/profile/profilelogout" */}
+  
     <UserContextProvider>
       <Routes>
-        <Route path="/" element={<Layout/>}></Route>
+        <Route path={"/"} element={<Layout/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         {/* <Route path="/user/enrolled-course:id" element={<Course/>}></Route> */}
@@ -44,6 +41,18 @@ function App() {
 
     </Routes>
     </UserContextProvider>
+    <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+         />
 
 
       

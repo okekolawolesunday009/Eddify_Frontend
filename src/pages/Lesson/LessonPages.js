@@ -61,13 +61,15 @@ export const LessonHome = ()=>{
       }
       useEffect(() => {
         if (user && id) {
-            axios.get(`http://localhost:5001/course/${id}/lessons`)
+            axios.get(`http://localhost:5001/course/${id}/lesson`)
                 .then(({ data }) => {
                     setLesson(data);
+                    console.log(data)
 
                     if (data.length > 0) {
                         setContent(data[0].content);
-                        setTitle(data[0].title);
+                        setTitle(data[0].lesson_title);
+                       
                        setDescription(data[0].description);
                     }
                 })
@@ -76,14 +78,15 @@ export const LessonHome = ()=>{
                 });
         } else {
             setLesson(SampleLesson);
-            console.log(lesson)
             if (SampleLesson.length > 0) {
                 setContent(SampleLesson[0].content);
                 setTitle(SampleLesson[0].title);
+                console.log(title)
                 setDescription(SampleLesson[0].description);
                
             }
         }
+        console.log(title)
     }, [id, user]);
 
     function handleContent(content, title, description) {
@@ -128,9 +131,9 @@ export const LessonHome = ()=>{
                    <ul className="flex flex-col h-[200px] mt-4 justify-between">
                     {lesson.map((lessonItem) => {
                         return <li 
-                        className=" cursor-pointer px-4 py-2  shadow-md hover:shadow-lg focus:shadow-lg text-center active:shadow-lg transition duration-150 ease rounded-sm"                         key={lessonItem.id} onClick={() => 
+                        className=" cursor-pointer px-4 py-2 text-black  shadow-md hover:shadow-lg focus:shadow-lg text-center active:shadow-lg transition duration-150 ease rounded-sm"                         key={lessonItem.id} onClick={() => 
                         handleContent(lessonItem.content, lessonItem.title, lessonItem.description)}>
-                        {lessonItem.title}
+                        {lessonItem.lesson_title}
                     </li>
                     })}
                     </ul>

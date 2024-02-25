@@ -9,11 +9,11 @@ import user from "../assets/form-page assets/user.svg"
 // import padlock from "./assets/form-page assets/padlock.svg"  
 import { useEffect, useState } from "react";
 import React from 'react';
-// import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
 import { HeaderTwo } from "./headerTwo";
 // import { Label } from "../Component/styled";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
+import Images from "../Images/images";
 
 export const Login = () => {
     Title("Eddify || Login");
@@ -44,7 +44,9 @@ export const Login = () => {
         console.log(token)
         localStorage.setItem('token', token);
   
-        navigate("/profile")
+        navigate("/profile/profilehome")
+        toast.success("Login Successful")
+
 
         // if (res.data.success === true) {
         //     console.log(res.data.message)
@@ -53,7 +55,7 @@ export const Login = () => {
         //     navigate("/profile")
         // }
        }).catch(err => {
-        // toast.error("Error Signing in")
+        toast.error("Error Signing in")
         console.log(err)
        })
        
@@ -62,7 +64,11 @@ export const Login = () => {
    }
     return (
         <div className="">
-            <HeaderTwo/>
+            <div >
+          
+          <img className="w-[200px] h-[100px]" src={eddify}  alt="Eddify"/>
+
+        </div>
         <form className="">
      <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
         <h1 className="mb-2">Welcome Back!!!</h1>
@@ -75,6 +81,7 @@ export const Login = () => {
             label="Email Address"
             value={email} 
             name="email"
+            required
             onChanged ={handleChange} />
         <Input 
             type="password" 

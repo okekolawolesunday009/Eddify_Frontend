@@ -26,11 +26,13 @@ import ProfileIcons from "./ProfileIcons";
 export const ProfileDashboard = ()=>{
     Title("Eddify || Learners Profile");
     const {user} = useContext(userContext)
+    console.log(user)
     const [nav, setNav] = useState(false)
 
     function handleClick(){
       setNav((p) => !p)
     }
+
    
     return(
         <div className="">
@@ -50,7 +52,8 @@ export const ProfileDashboard = ()=>{
                   
 
                     <img src={Images.profilePhoto} alt="profile photo"/>
-                    <h3 className="font-bold">OKE KOLAWOLE SUNDAY</h3>
+                    {user ? (<h3 className="font-bold">{`${user.first_name} ${user.last_name}`}</h3>) : 
+                    (<h3 className="font-bold"> OKE KOLAWOLE SUNDAY</h3>)}
 
 
 
@@ -90,8 +93,23 @@ export const ProfileDashboard = ()=>{
 };
 export const ProfileHome = ()=>{
     Title("Eddiffy || Learner's Home");
+    const [nav, setNav] = useState(false)
+   
+    function handleClick(){
+     setNav((p) => !p)
+   }
     return(
         <div>
+            <div className="flex justify-between items-center w-full " >
+           <h1>Home</h1>
+
+            <Searchs/>
+            <UserIcon  onHandle={handleClick}/>
+
+            </div>
+            <div className="bottom-border"></div>
+
+            <div className= {nav ? 'w-[100%] block absolute' : 'hidden' }><MobileSideBar/></div>
             profile Home
         </div>
     )
@@ -109,6 +127,7 @@ export const ProfileCourse = ()=>{
    const [courses, setCourses] = useState([...SampleCourses])
    const [enrolledCourses, setEnrolledCourses] = useState([])
    const [nav, setNav] = useState(false)
+  
    const {search} = formData
 
    const navigate = useNavigate()
@@ -209,24 +228,33 @@ export const ProfileHelp = ()=>{
 export const CourseEnroll = ()=>{
     Title("Serch || Learner's Enroll");
     // SwiperCore.use([Autoplay, Navigation, Pagination]);
-    const [courses, setCourses] = useState([])
+    const [course, setCourse] = useState([])
     const {id} = useParams()
     const {user} = useContext(userContext)
-    console.log(id, courses)
+    console.log(id, course)
     useEffect(() => {
         if (user && id) {
 
            axios.get(`http://localhost:5001/courses/${id}`).then(({data}) =>{
-            setCourses(data)
+            setCourse(data)
             console.log(data)
       
           })
         }else{
-            setCourses()
+            setCourse()
 
         }
         },[id])
         const [nav, setNav] = useState(false)
+        function enroll () {
+            axios.post(`http://localhost:5001/courses/${id}`).then(({data}) =>{
+                setCourse(data)
+                console.log(data)
+          
+              })
+
+
+        }
 
         function handleClick(){
             setNav((p) => !p)
@@ -234,7 +262,7 @@ export const CourseEnroll = ()=>{
     return(
         <div>
             <div className="flex justify-between mb-5 items-center w-full " >
-            <h1>{courses.title}</h1>
+            <h1>{course.title}</h1>
 
             <Searchs/>
             <UserIcon  onHandle={handleClick}/>
@@ -249,9 +277,28 @@ export const CourseEnroll = ()=>{
 
             <div className="w-full flex  mt-5 bg-red-600 h-4 " style={{marginTop:"20px", backgroundColor:"gray", height:
         "200px"}}>
+            <h1>{course.title}</h1>
+
                 
 
             </div>
+           <div className="flex flex-col">
+             <div className="flex gap-4 items-center">
+             <h1>{course.title}</h1>
+             <div className="flex gap-4">  
+                    <h3> lessons:{course.number_lesson}</h3>
+                    <h3>hours:{course.hours_lesson}</h3></div>
+             </div>
+             </div>
+             <div className="flex flex-col gap-4">
+                <h2>{course.description}</h2> 
+               
+               
+
+           </div>
+           <div>
+           <button className="btn" onClick={enroll}>Enroll</button>
+           </div>
 
             <Footer/>
 

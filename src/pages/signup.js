@@ -13,15 +13,12 @@ import React from 'react';
 // import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
 import { Label } from "../Component/styled";
-import { HeaderTwo } from "./headerTwo";
+import { toast } from "react-toastify";
 
 
 
 export  default function SignUp(){
     Title("Eddify || Sign up");
-
-    // const [phone_no, setPhone_one] = useState()
-    // const [phone_two, setPhone_two] = useState()
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -45,32 +42,39 @@ export  default function SignUp(){
 
    const submit = (e) =>{
        e.preventDefault()
-    //    axios.post("http://localhost:5001/api/v1/users/signup", formData)
-    //    .then(res => {
-    //     console.log(res)
-    //     const token = res.data.token
+       axios.post("http://localhost:5001/signup", formData)
+       .then(res => {
+        console.log(res)
+        
+        if (res.status === 200) {
+            const token = res.data.token
+            console.log(token)
+            localStorage.setItem('token', token);
+            toast.success("Sign up successful")
+            navigate("/profile/profilehome")
 
-    //     console.log(token)
-    //     localStorage.setItem('token', token);
+        } 
+       })
+       .catch(err => {
+        console.error(err)
+        toast.error("Sign up unsuccessful")
   
-    //     navigate("/api/v1/profile")
-    //    })
-    //    .catch(err => {
-    //     console.error(err)
-    //    })
-    //    console.log(formData)
-       //install toast
-    //    navigate("/")
-
-       navigate("/profile")
+       })
+       console.log(formData)
+      
+     
 
        
 
    }
     return (
         <div className="">
-        <HeaderTwo/>
-    <form className="">
+         <div >
+          
+          <img className="w-[200px] h-[100px]" src={eddify}  alt="Eddify"/>
+
+        </div>
+    <form className="" onSubmit={submit}>
      <div className="space-y-2 flex justify-center mx-auto  max-w-3xl  lg:my-10 p-10  lg:h-full w-full bg-cover flex-col">
         
         <h1 className="mb-2">Create new account</h1>
@@ -85,6 +89,7 @@ export  default function SignUp(){
             label="First Name"
             name="first_name"
             value={first_name}
+            required
             onChanged={handleChange}  />
        <Input 
             type="text" 
@@ -94,6 +99,7 @@ export  default function SignUp(){
             label="Last Name"
             name="last_name"
             value={last_name}
+            required
             onChanged={handleChange}  />
          <Input 
              type="text"
@@ -103,6 +109,7 @@ export  default function SignUp(){
              label="Email Address"
              name="email"
              value={email}
+             required
              onChanged={handleChange}  />
     
        
@@ -118,6 +125,7 @@ export  default function SignUp(){
              label="Password" 
              name="password"
              value={password}
+             required
              onChanged={handleChange} />
         <div>
             <Label>Phone Number</Label>
@@ -132,6 +140,7 @@ export  default function SignUp(){
              label="Profile pics"
              name="image_file"
              value={image_file}
+             required
              onChanged={handleChange}  />
        
         </div>
@@ -158,7 +167,7 @@ export  default function SignUp(){
 
         <div className=" flex flex-col">
         
-            <button  style={{width:"100%"}}  onClick={submit}  className="btn mt-2">Sign Up</button>
+            <button type="submit"  style={{width:"100%"}}   className="btn mt-2">Sign Up</button>
         
            
             
