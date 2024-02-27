@@ -37,7 +37,7 @@ export const Login = () => {
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:5001/login", formData)
+       axios.post("https://eddify-i4ft.onrender.com/login", formData)
        .then(result => {
         const token = result.data.token
 
