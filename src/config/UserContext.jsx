@@ -16,7 +16,7 @@ export function UserContextProvider({children}){
         
             console.log(user, "user")
             const tokenKey = localStorage.getItem('token');
-            axios.get(`http://localhost:5001/auth`,  {
+            axios.get(`https://eddify-i4ft.onrender.com/auth`,  {
                 headers: {'Content-Type': 'application/json', "x-access-token": tokenKey}
             })
             .then(({data}) =>{
