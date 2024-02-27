@@ -37,7 +37,7 @@ export const Login = () => {
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("https://eddify-i4ft.onrender.com/login", formData)
+       axios.post("https://eddify-backend.netlify.app/login", formData)
        .then(result => {
         const token = result.data.token
 
