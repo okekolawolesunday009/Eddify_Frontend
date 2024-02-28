@@ -134,14 +134,14 @@ export const ProfileCourse = ()=>{
 
    
    useEffect(() => {
-    axios.get(`http://localhost:5001/courses`).then(({data}) =>{
+    axios.get(`https://eddify-i4ft.onrender.com/courses`).then(({data}) =>{
         setCourses(data)
   
       })
       
    if (user && id) {
     console.log(id)
-    axios.get(`http://localhost:5001/user/${id}/enrollments`).then(({data}) =>{
+    axios.get(`https://eddify-i4ft.onrender.com/user/${id}/enrollments`).then(({data}) =>{
         setEnrolledCourses(data)
         console.log(enrolledCourses.course)
     })
@@ -235,7 +235,7 @@ export const CourseEnroll = ()=>{
     useEffect(() => {
         if (user && id) {
 
-           axios.get(`http://localhost:5001/courses/${id}`).then(({data}) =>{
+           axios.get(`https://eddify-i4ft.onrender.com/courses/${id}`).then(({data}) =>{
             setCourse(data)
             console.log(data)
       
@@ -247,7 +247,7 @@ export const CourseEnroll = ()=>{
         },[id])
         const [nav, setNav] = useState(false)
         function enroll () {
-            axios.post(`http://localhost:5001/courses/${id}`).then(({data}) =>{
+            axios.post(`https://eddify-i4ft.onrender.com/courses/${id}`).then(({data}) =>{
                 setCourse(data)
                 console.log(data)
           
