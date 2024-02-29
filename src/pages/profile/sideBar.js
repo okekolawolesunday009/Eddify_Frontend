@@ -30,7 +30,7 @@ export const SideBar = [
 
     {
         title:"Home",
-        path:"/profile/profilehelp",
+        path:"/profile/home",
         icon:<IoMdHome className="text-2xl"/>,
         cName:"profile-nav-item"
 
@@ -38,7 +38,7 @@ export const SideBar = [
    
     {
         title:"Payment",
-        path:"/profile/profilepayment",
+        path:"/profile/payment",
         icon:<CiCreditCard2 className="text-2xl "
          />,
         cName:"profile-nav-item"
@@ -58,7 +58,7 @@ export const SideBar = [
 
     {
         title:"Help",
-        path:"/profile/profilehelp",
+        path:"/profile/help",
         icon:<IoIosHelpCircleOutline  className="text-2xl " />,
         cName:"profile-nav-item"
 

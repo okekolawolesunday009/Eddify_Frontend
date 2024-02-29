@@ -30,7 +30,6 @@ function App() {
            <Route path={ProfileLinks.profilepayment} element={<ProfilePayment/>}/>
            <Route path={"/profile/courses"} element={<ProfileCourse/>}/>
            <Route path={"/profile/course/:id"} element={<CourseEnroll/>}/>
-           <Route path={ProfileLinks.profileHelp} element={<ProfileHelp/>}/>
            <Route path={"/profile/logout"} element={<ProfileLogOut/>}/>
        
            

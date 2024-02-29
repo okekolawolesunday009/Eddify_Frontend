@@ -44,7 +44,7 @@ export const Login = () => {
         console.log(token)
         localStorage.setItem('token', token);
   
-        navigate("/profile/profilehome")
+        navigate("/profile/home")
         toast.success("Login Successful")
 
 

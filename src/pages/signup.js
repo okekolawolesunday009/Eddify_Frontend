@@ -42,7 +42,7 @@ export  default function SignUp(){
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("https://eddify-i4ft.onrender.com/signup", formData)
+       axios.post("http://localhost:5001/signup", formData)
        .then(res => {
         console.log(res)
         
@@ -51,7 +51,7 @@ export  default function SignUp(){
             console.log(token)
             localStorage.setItem('token', token);
             toast.success("Sign up successful")
-            navigate("/profile/profilehome")
+            navigate("/profile/home")
 
         } 
        })

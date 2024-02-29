@@ -61,11 +61,10 @@ export const LegalLinks = {
 }
 export const ProfileLinks ={
     profiledashboard:"/profile",
-    profilehome:"/profile/profilehome",
-    profilepayment:"/profile/profilepayment",
-    profileCourse:"/profile/profilecourse",
-    profileHelp:"/profile/profilehelp",
-    profieLogOut:"/profile/profilelogout"
+    profilehome:"/profile/home",
+    profilepayment:"/profile/payment",
+    profileCourse:"/profile/course",
+    profieLogOut:"/profile/logout"
 }
 export const LessonLinks ={
     coursedashboard:"/courses/lessons",

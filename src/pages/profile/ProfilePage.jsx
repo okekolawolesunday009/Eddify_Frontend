@@ -94,12 +94,31 @@ export const ProfileDashboard = ()=>{
 export const ProfileHome = ()=>{
     Title("Eddiffy || Learner's Home");
     const [nav, setNav] = useState(false)
+    const {user} = useContext(userContext)
+    const {id} = useContext(userContext)
+    const [formData, setFormData] = useState({
+        search: ""
+   })
+ 
+    const [courses, setCourses] = useState([...SampleCourses])
+    const [enrolledCourses, setEnrolledCourses] = useState([])
+   
+    const {search} = formData
+ 
+    const navigate = useNavigate()
+ 
+    
+    useEffect(() => {
+     axios.get(`https://eddify-i4ft.onrender.com/courses`).then(({data}) =>{
+         setCourses(data)
+   
+       })})
    
     function handleClick(){
      setNav((p) => !p)
    }
     return(
-        <div>
+        <div className="">
             <div className="flex justify-between items-center w-full " >
            <h1>Home</h1>
 
@@ -109,9 +128,27 @@ export const ProfileHome = ()=>{
             </div>
             <div className="bottom-border"></div>
 
-            <div className= {nav ? 'w-[100%] block absolute' : 'hidden' }><MobileSideBar/></div>
-            profile Home
-        </div>
+            <div className= {nav ? 'w-[100%] block ' : 'hidden' }><MobileSideBar/></div>
+           
+            <div className="h-[300px] mb-[40px] w-[100%] bg-ed-secondary text-white flex flex-col px-[20px] py-[100px] ">
+                <h1 className="mt-[40px]">Black In Technology Learning Program</h1>
+                <h3 className="mb-[40px]"> Start Learning on Eddify</h3>
+
+            </div>
+ 
+            <div className="w-auto mt-[20px] h-[600px]">
+                        <ul className=" grid  gap-8 lg:flex-wrap grid-cols-4 md:grid-cols-4 lg:flex">
+                        {courses.length > 0 && (
+                            courses.map((course) => {
+                                return (<CardDefault key={course.id} course={course}/>)
+                            })
+                        )}
+                        </ul>
+
+                    </div>
+
+                    <Footer/>
+            </div>
     )
     
 };
@@ -138,6 +175,7 @@ export const ProfileCourse = ()=>{
         setCourses(data)
   
       })
+    
       
    if (user && id) {
     console.log(id)
@@ -247,7 +285,7 @@ export const CourseEnroll = ()=>{
         },[id])
         const [nav, setNav] = useState(false)
         function enroll () {
-            axios.post(`https://eddify-i4ft.onrender.com/courses/${id}`).then(({data}) =>{
+            axios.post(`https://eddify-i4ft.onrender.com/course/${id}enrollment/`, user.id).then(({data}) =>{
                 setCourse(data)
                 console.log(data)
           
