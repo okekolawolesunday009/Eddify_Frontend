@@ -285,7 +285,7 @@ export const CourseEnroll = ()=>{
         },[id])
         const [nav, setNav] = useState(false)
         function enroll () {
-            axios.post(`https://eddify-i4ft.onrender.com/course/${id}/enrollment/`, user.id).then(({data}) =>{
+            axios.post(`https://eddify-i4ft.onrender.com/course/${id}/enrollments/`, user.id).then(({data}) =>{
                 setCourse(data)
                 console.log(data)
           
