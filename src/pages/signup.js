@@ -42,7 +42,7 @@ export  default function SignUp(){
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http://localhost:5001/signup", formData)
+       axios.post("http://eddify-i4ft.onrender.com/signup", formData)
        .then(res => {
         console.log(res)
         
